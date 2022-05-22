@@ -1,0 +1,29 @@
+<div class="dashboard">
+  <div class="header">
+    <h1>STAGE 3 TEST</h1>
+    <h2>MOTOR DE BUSQUEA DE SERIES Y PELICULAS</h2>
+  </div>
+  <br />
+
+  <div class="dashboard__form">
+    <app-form-movies
+      (searchMovieEmitter)="searchMovie($event)"
+    ></app-form-movies>
+  </div>
+
+  <div class="parent">
+    <div class="dashboard__table" *ngIf="hasResults()">
+      <app-movies-table
+        [movieList]="movieList"
+        (addFavoriteMovieEmitter)="selectedMovie($event)"
+      ></app-movies-table>
+    </div>
+
+    <div class="dashboard__favorites" *ngIf="hasFavoriteShow()">
+      <app-favorite-shows
+        [favorites]="favoriteShows"
+        (removeFavoriteEmitter)="removeFavorite($event)"
+      ></app-favorite-shows>
+    </div>
+  </div>
+</div>

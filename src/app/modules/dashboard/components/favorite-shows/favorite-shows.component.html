@@ -1,0 +1,43 @@
+<div class="favorites">
+  <h2>Favorites Show</h2>
+  <mat-card class="example-card">
+    <div class="favorites__show" *ngFor="let show of favorites; let i = index">
+      <div class="favorites__number">#{{ i + 1 }}</div>
+      <mat-card-header>
+        <img class="img" [src]="show.poster" alt="Poster" />
+      </mat-card-header>
+      <mat-card-content>
+        <div class="favorites__title">
+          <span class="favorites__tittle-text">Title: </span>{{ show.title }}
+        </div>
+        <div class="favorites__type">
+          <span class="favorites__type-text">Type: </span>{{ show.type }}
+        </div>
+        <div class="favorites__year">
+          <span class="favorites__year-text">Year: </span>{{ show.year }}
+        </div>
+
+        <div *ngIf="show.comments" class="favorite__header__comment">
+          <span
+            ><b>Comments: {{ show.comments }}</b></span
+          >
+        </div>
+
+        <div *ngIf="show.registerDate" class="favorite__header__comment">
+          <span
+            ><b
+              >Registration Date: {{ show.registerDate | date: "H:mm:ss" }}</b
+            ></span
+          >
+        </div>
+
+        <div class="favorites__action">
+          <mat-icon class="favorites__delete" (click)="removeFavorite(i)"
+            >delete</mat-icon
+          >
+        </div>
+      </mat-card-content>
+    </div>
+  </mat-card>
+  <div></div>
+</div>

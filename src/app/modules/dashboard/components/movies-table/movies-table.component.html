@@ -1,0 +1,46 @@
+<div class="form-table">
+  <h2>Results</h2>
+  <mat-card class="example-card">
+    <form [formGroup]="movieForm">
+      <div
+        formArrayName="movies"
+        *ngFor="let movie of getMovieList.controls; let i = index"
+      >
+        <div [formGroupName]="i">
+          <mat-card-header>
+            <img class="img" [src]="dataSource[i].poster" alt="Poster" />
+          </mat-card-header>
+
+          <mat-card-content>
+            <mat-form-field class="form__input" appearance="fill">
+              <mat-label>Title</mat-label>
+              <input matInput formControlName="title" />
+            </mat-form-field>
+            <mat-form-field class="form__input" appearance="fill">
+              <mat-label>Type</mat-label>
+              <input matInput formControlName="type" />
+            </mat-form-field>
+            <mat-form-field class="form__input" appearance="fill">
+              <mat-label>Year</mat-label>
+              <input matInput formControlName="year" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Comments</mat-label>
+              <textarea
+                matInput
+                type="text"
+                formControlName="comments"
+              ></textarea>
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-icon-button (click)="addFavoriteMovie(i)">
+              <mat-icon>favorites</mat-icon>
+            </button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

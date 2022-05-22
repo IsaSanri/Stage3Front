@@ -1,0 +1,30 @@
+<div class="form" [formGroup]="movieForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Busqueda</mat-label>
+    <mat-select formControlName="option">
+      <mat-option
+        *ngFor="let option of option"
+        [value]="option.value"
+        (click)="isDisabled()"
+      >
+        {{ option.viewValue | titlecase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{
+      "Buscar" | modifyText: movieForm.controls["option"].value
+    }}</mat-label>
+    <input matInput type="text" formControlName="nameField" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Año</mat-label>
+    <input matInput formControlName="yearField" appDateFormat />
+  </mat-form-field>
+
+  <button mat-icon-button (click)="searchMovie()" [disabled]="!movieForm.valid">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
