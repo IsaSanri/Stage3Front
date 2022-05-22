@@ -15,7 +15,7 @@
     <div class="dashboard__table" *ngIf="hasResults()">
       <app-movies-table
         [movieList]="movieList"
-        (addFavoriteMovieEmitter)="selectedMovie($event)"
+        (addFavoriteMovieEmitter)="addFavoriteMovie($event)"
       ></app-movies-table>
     </div>
 

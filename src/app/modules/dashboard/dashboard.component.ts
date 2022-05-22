@@ -30,16 +30,16 @@ export class DashboardComponent {
       });
   }
 
-  selectedMovie(selectedMovie: MovieInterface) {
-    const alreadyAdded = this.favoriteShows.findIndex(
-      (element) => element.title === selectedMovie.title
-    );
-    if (alreadyAdded === -1) {
-      this.favoriteShows.push(selectedMovie);
-    } else {
-      alert(`Movie already added:  ${selectedMovie.title}`);
-    }
-  }
+  // selectedMovie(selectedMovie: MovieInterface) {
+  //   const alreadyAdded = this.favoriteShows.findIndex(
+  //     (element) => element.title === selectedMovie.title
+  //   );
+  //   if (alreadyAdded === -1) {
+  //     this.favoriteShows.push(selectedMovie);
+  //   } else {
+  //     alert(`Movie already added:  ${selectedMovie.title}`);
+  //   }
+  // }
 
   addFavoriteMovie(favoriteMovie: MovieInterface) {
     const alreadyAdded = this.favoriteShows.findIndex(
